@@ -23,8 +23,11 @@ export const view = {
 
     initCardListeners: function(modal) {
         for(let i = 0; i < (model.todos).length; i++){
+            let id = model.get()[i].id;
+            //document.getElementById(`${i}delete`).addEventListener('click', ()=>controller.deleteToDo(i))
             document.getElementById(`${i}delete`).addEventListener('click', ()=>controller.deleteToDo(i))
-            document.getElementById(`checkbox-${i}`).addEventListener('change', ()=>alert(`hi${i}`));
+            document.getElementById(`checkbox-${i}`).addEventListener('change', ()=>alert(`The task ${i} is done`));
+            //document.getElementById(`checkbox-${i}`).addEventListener('change', ()=>alert(`The task ${i} is done`));
         }
     },
 
@@ -43,15 +46,16 @@ export const view = {
     //     theCard.classList.add('hidden');
     // },
 
-    render: function(root){;
+    render: function(root){
         root.insertAdjacentHTML("beforeend", list());
         document.getElementById('list').remove();
         for(let i = 0; i < model.todos.length; i++) {
             document.getElementById('list').insertAdjacentHTML('beforeend', card(model.todos[i]));
+            //console.log(controller.totalTodos(i));
         }
         //view.initListeners(document.getElementById("modal"));
         view.initCardListeners(document.getElementById("modal"));
-
+        //console.log(controller.totalTodos(j));
     },
 
     app: function() {

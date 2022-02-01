@@ -3,6 +3,8 @@ function inputButton(){
 }
 
 function card(obj) {
+    obj.statusExists = true;
+    obj.statusIsDone = false;
   return `
   <div class="w-2/4 justify-center border-4 border-blue-200 mb-4 rounded-2xl bg-gradient-to-r from-green-200 to-blue-200" id='${obj.id}'>
     <h2 class="text-lg leading-6 font-medium text-gray-900 mt-5 text-2xl ml-6">${obj.title}</h2>
@@ -14,7 +16,9 @@ function card(obj) {
     <a id="${obj.id}done" class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white cursor-pointer hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm transition duration-500 ease-in-out bg-blue-600 hover:bg-green-500 transform hover:-translate-y-1 hover:scale-110 mb-5">Done</a>
     <input type="checkbox" class="card__checkbox" id="checkbox-${obj.id}">
     <a id="${obj.id}delete" class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white cursor-pointer hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm transition duration-500 ease-in-out bg-blue-600 hover:bg-red-500 transform hover:-translate-y-1 hover:scale-110 mb-5">Delete</a>
-  </div>`
+    <div> statusExists ${obj.statusExists}</div>
+    <div> statusIsDone ${obj.statusIsDone}</div>
+    </div>`
 }
 
 

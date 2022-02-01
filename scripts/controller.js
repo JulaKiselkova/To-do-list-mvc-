@@ -29,8 +29,9 @@ export const controller = {
         let arrToDo = model.get();
         let deletedElement = model.get()[i];
         console.log(deletedElement);
-        arrToDo.splice(i, 1);
-        console.log(model.get());
+        //arrToDo.splice(i, 1);
+        console.log(arrToDo);
+        deletedElement.statusExists = false;
         model.todos = arrToDo;
         theCard.classList.add('hidden');
     },
@@ -47,13 +48,25 @@ export const controller = {
         view.render(root);
     },
 
-    // completeTodo: function(i){
-    //     if(model.todos[i].isDone) {
-    //         model.todos[i].isDone = false;
-    //     } else {
-    //         model.todos[i].isDone = true;
-    //     }
-    //     model.setLocalStorage();
-    //     view.render();
-    // }
+    //сделан такск или нет
+    isDoneTodo: function(i) {
+        let theCard = document.getElementById(i);
+        let arrToDo = model.get();
+        let doneElement = model.get()[i];
+        console.log(doneElement);
+        doneElement.statusIsDone = true;
+    },
+
+    //
+    totalTodos: function(start) {
+        //let totalTodos = 0;
+        let arrToDo = model.get();
+        for(let i = 0; i < arrToDo.length; i++){
+            if(model.get().statusExists === true) {
+                start = start + 1;
+            };
+        }
+        return start;
+        //return model.get().length;
+    }
 }
