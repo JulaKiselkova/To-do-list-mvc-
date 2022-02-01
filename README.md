@@ -5,4 +5,3 @@
 * DOM
 
 [watch](https://julakiselkova.github.io/to-do-list/) me
-https://julakiselkova.github.io/To-do-list-mvc-/
